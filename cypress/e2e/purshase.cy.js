@@ -1,17 +1,23 @@
-import HomePage from "../../POM/homePage.js"
+import HomePage from "../../POM/homePage.js";
 
-describe('Purshase tests', () => {
+describe("Purshase tests", () => {
+  const homepage = new HomePage();
 
-    const homepage = new HomePage();
-
-  it('Purshase a persian food', () => {
-    
+  it("Purshase a persian food", () => {
     cy.RegisterAndLogin();
 
-    homepage.fillSearch('persian');
+    homepage.fillSearch("persian");
 
     homepage.BotaoProcura();
 
     homepage.linkGato();
-  })
-})
+
+    homepage.AddToCart();
+
+    homepage.Checkout();
+
+    homepage.ContinuarCheckout();
+
+    homepage.ConfirmarCompra();
+  });
+});
